@@ -6,6 +6,7 @@ A web app for the [CS383 Social Stock Service](https://github.com/otternq/CS383B
 Use the App
 -----------
 [View on the Web](http://socialstock.uni.me/)
+
 [Download The App](http://build.phonegap.com/apps/236140/builds)
 
 Warning
