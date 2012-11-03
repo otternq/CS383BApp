@@ -8,6 +8,7 @@ Use the App
 [View on the Web](http://socialstock.uni.me/)
 
 [Download The App](http://build.phonegap.com/apps/236140/builds)
+[QR Code for the app](https://chart.googleapis.com/chart?chs=116x116&cht=qr&chl=http://build.phonegap.com/apps/236140/install/?qr_key=Ru1Xyg4XD1q7tgKCQbap&chld=L|1&choe=UTF-8)
 
 Warning
 -------
