@@ -1,0 +1,56 @@
+<!--
+Much of the code for this file was borrowed from the annotated time line from the Google Charts API Playground
+This can be found here:
+http://code.google.com/apis/ajax/playground/?type=visualization#table
+-->
+
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    	<title>Algorithm Table</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		
+		<link rel="stylesheet" href="./css/jquery.mobile-1.1.1.min.css" />
+		<script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+		<script src="./javascript/jquery.mobile-1.1.1.min.js"></script>
+		
+		<script type="text/javascript">
+		google.load('visualization', '1', {packages: ['table']});
+		</script>
+		
+		<script type="text/javascript">
+			/* An initial function to get the data into a table */
+			function init()
+			{
+				$.ajax(
+				{
+					url: 'http://api.socialstock.uni.me/algorithmTable.php',
+					dataType: 'json',
+					success: function(data)
+					{
+						drawVisualization(data);
+					}
+				});
+			}
+			
+			// The function for drawing the table
+			function drawVisualization(dataItems)
+			{
+				// Create and populate the data table.
+				var data = google.visualization.arrayToDataTable(dataItems);
+				
+				// Create and draw the visualization.
+				visualization = new google.visualization.Table(document.getElementById('table'));
+				visualization.draw(data, null);
+			}
+			
+			google.setOnLoadCallback(init);
+		</script>
+	</head>
+	
+	<body style="font-family: Arial;border: 0 none;">
+		<div id="table"></div>
+	</body>
+</html>
