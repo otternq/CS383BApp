@@ -31,7 +31,8 @@ http://code.google.com/apis/ajax/playground/?type=visualization#table
 					dataType: 'json',
 					success: function(data)
 					{
-						drawVisualization(data);
+						myData = [data];
+						drawVisualization(myData);
 					}
 				});
 			}
