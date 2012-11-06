@@ -20,7 +20,7 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
     <script src="./javascript/jquery.mobile-1.1.1.min.js"></script>
     
     <script type="text/javascript">
-      google.load('visualization', '1', {packages: ['annotatedtimeline']});
+      google.load('visualization', '1', {packages: ['imagelinechart']});
     </script>
     <script type="text/javascript">
       function init() {
@@ -55,7 +55,8 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
     
       /* Constructing the Annotated Timeline from the information table */
       function drawVisualization(div, dataItems) {
-        var data = new google.visualization.DataTable(dataItems);
+            
+            var data = new google.visualization.DataTable(dataItems);
 			
 			/* Construction the table for the timeline */
 			data.addColumn('date', 'Date');
@@ -66,9 +67,8 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
 			data.addRows(dataItems);
 			
 			/* The Actual construction of the timeline */
-			var annotatedtimeline = new google.visualization.AnnotatedTimeLine(
-				document.getElementById(div));
-			annotatedtimeline.draw(data, {'displayAnnotations': true});
+			var imageLineGraph = new google.visualization.ImageLineChart(document.getElementById(div));
+			imageLineGraph.draw(data);
       }
       
 
