@@ -28,7 +28,8 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
         //retrieve data for the guage
         $.ajax({
             url: 'http://api.socialstock.uni.me/sentTimeline.php',
-            dataType: 'json',
+            crossDomain: true,
+            dataType: 'jsonp',
             success: function(data) {
                 alert(data);
                 return 0;

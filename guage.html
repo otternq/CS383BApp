@@ -27,7 +27,7 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
       
         //retrieve data for the guage
         $.ajax({
-            url: 'http://socialstock.uni.me/guage.php',
+            url: 'http://api.socialstock.uni.me/guage.php',
             dataType: 'json',
             success: function(data) {
                 drawVisualization('visualization', data.a1, data.a2, data.a3);
