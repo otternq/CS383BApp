@@ -37,7 +37,7 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
                     var subData = new Array();
                     
                     var d = jData[i].date.split("-");
-                    subData[0] = new Date( d[0], d[1], d[2] );
+                    subData[0] = new Date( d[0], d[1] - 1, d[2] );
                     
                     subData[1] = jData[i]['0'];
                     subData[2] = jData[i]['1'];
