@@ -1,7 +1,7 @@
 CS383BApp
 =========
 
-A web app for the [CS383 Social Stock Service](https://github.com/otternq/CS383B) can can be used under Apache or PhoneGap Build.
+A web app for the [CS383 Social Stock Service](https://github.com/otternq/CS383B) that can be accessed via the internet or mobile app
 
 Use the App
 -----------
