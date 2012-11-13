@@ -9,8 +9,12 @@ Use the App
 
 [Download The App](http://build.phonegap.com/apps/236140/builds)
 
-###Install the App with QR Code###
+###Install the Mobile App with QR Code###
+
+The mobile app is available for Android, Windows Phone, HP WebOS (Palm), BlackBerry, and Symbian. Currently we do not supply an iOS (iPhone or iPad) application because Apple requires the purchase of a developers certificate
+
 ![alt text](https://chart.googleapis.com/chart?chs=116x116&cht=qr&chl=http://build.phonegap.com/apps/236140/install/?qr_key=Ru1Xyg4XD1q7tgKCQbap&chld=L|1&choe=UTF-8 "QR Code failed to load")
+
 
 Warning
 -------
