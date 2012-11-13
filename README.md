@@ -18,4 +18,4 @@ The mobile app is available for Android, Windows Phone, HP WebOS (Palm), BlackBe
 
 Warning
 -------
-This system is part of a class project and should not be used to make any decision involving the Stock Market.
+This system is part of a class project ([CS 383](http://www2.cs.uidaho.edu/~oman/CS383/CS383_F12_syllabus.htm) at The University of Idaho) and should not be used to make any financial decisions, especially those involving the Stock Market.
