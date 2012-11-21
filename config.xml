@@ -17,6 +17,6 @@
         I-Team 
     </author>
     
-    <preference name="orientation" value="portrait" />
+    <preference name="orientation" value="landscape" />
 
 </widget>
