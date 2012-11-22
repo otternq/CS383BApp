@@ -15,6 +15,10 @@ The mobile app is available for Android, Windows Phone, HP WebOS (Palm), BlackBe
 
 ![alt text](https://chart.googleapis.com/chart?chs=116x116&cht=qr&chl=http://build.phonegap.com/apps/236140/install/?qr_key=Ru1Xyg4XD1q7tgKCQbap&chld=L|1&choe=UTF-8 "QR Code failed to load")
 
+Requirements
+------
+- [jQuery](http://jquery.com/) - JavaScript Framework
+- [jQuery Mobile](http://jquerymobile.com/) - Style Framework for Mobile Devices
 
 Warning
 -------
