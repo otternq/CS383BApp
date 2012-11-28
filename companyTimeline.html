@@ -1,0 +1,91 @@
+<!--
+You are free to copy and use this sample in accordance with the terms of the
+Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>
+      Social Stock | Sentiment Timeline
+    </title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <link rel="stylesheet" href="./css/jquery.mobile-1.1.1.min.css" />
+    
+    <script type="text/javascript" src="./javascript/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script src="./javascript/jquery.mobile-1.1.1.min.js"></script>
+    
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['imagelinechart','corechart']});
+    </script>
+    <script type="text/javascript">
+      function init() {
+      
+        //retrieve data for the guage
+        $.ajax({
+            url: 'http://api.socialstock.uni.me/companyResults.php',
+            crossDomain: true,
+            dataType: 'jsonp',
+            success: function(jData) {
+                var data = new Array();
+                
+                for (var i = 0; i < jData.length; i++) {
+                    var subData = new Array();
+                    
+                    var d = jData[i].date.split("-");
+                    subData[0] = new Date( d[0], d[1] - 1, d[2] );
+                    
+                    subData[1] = jData[i]['0'];
+                    subData[2] = jData[i]['1'];
+                    subData[3] = jData[i]['2'];
+                    subData[4] = jData[i]['3'];
+                    data[i] = subData;
+                }
+                
+                drawVisualization('visualization', data);
+            }
+        });
+      
+        
+      }
+    
+      /* Constructing the Annotated Timeline from the information table */
+      function drawVisualization(div, dataItems) {
+            
+            var data = new google.visualization.DataTable(dataItems);
+			
+			/* Construction the table for the timeline */
+			data.addColumn('date', 'Date');
+			data.addColumn('number', 'Albertsons');
+			data.addColumn('number', '#apple');
+			data.addColumn('number', 'Reddit');
+			data.addColumn('number', 'NASDAQ');
+			data.addColumn('number', 'google');
+			data.addColumn('number', 'Android');
+			data.addColumn('number', 'SuperValu');
+			data.addColumn('number', 'AAPL');
+			data.addRows(dataItems);
+			
+			/* The Actual construction of the timeline */
+			var imageLineGraph = new google.visualization.LineChart(document.getElementById(div));
+			imageLineGraph.draw(data);
+      }
+      
+
+      google.setOnLoadCallback(init);
+    </script>
+  </head>
+  <body style="font-family: Arial;border: 0 none;">
+    <div data-role="header">
+        <a rel="external" href="./index.html">Back</a>
+        <h1>Social Stock</h1>
+    </div>
+    <div data-role="content">
+        <div id="visualization" style="width: 600px; height: 300px;"></div>
+    </div>
+  </body>
+</html>
