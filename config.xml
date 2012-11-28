@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "me.uni.socialstock"
+        versionCode="1" 
+        version   = "2.1.0">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>SocialStock</name>
+
+    <description>
+        Attempts to analyze social media to predict the movements of the stock market 
+    </description>
+
+    <author href="https://build.phonegap.com" email="otternq@gmail.com">
+        I-Team 
+    </author>
+    
+    <preference name="orientation" value="landscape" />
+    <preference name="fullscreen" value="true" />
+
+</widget>
