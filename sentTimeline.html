@@ -20,7 +20,7 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
     <script src="./javascript/jquery.mobile-1.1.1.min.js"></script>
     
     <script type="text/javascript">
-      google.load('visualization', '1', {packages: ['imagelinechart']});
+      google.load('visualization', '1', {packages: ['imagelinechart','corechart']});
     </script>
     <script type="text/javascript">
       function init() {
@@ -67,7 +67,7 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
 			data.addRows(dataItems);
 			
 			/* The Actual construction of the timeline */
-			var imageLineGraph = new google.visualization.ImageLineChart(document.getElementById(div));
+			var imageLineGraph = new google.visualization.LineChart(document.getElementById(div));
 			imageLineGraph.draw(data);
       }
       
