@@ -23,32 +23,77 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
       google.load('visualization', '1', {packages: ['imagelinechart','corechart']});
     </script>
     <script type="text/javascript">
-      function init() {
-      
-        //retrieve data for the guage
-        $.ajax({
-            url: 'http://api.socialstock.uni.me/companyResults.php',
+    
+      function getCompanyData(company, div) {
+          
+          $.ajax({
+            url: 'http://api.socialstock.uni.me/companyResults.php?company='+ company,
             crossDomain: true,
-            dataType: 'jsonp',
+            dataType: 'json',
             success: function(jData) {
-                var data = new Array();
                 
+                var data = new Array();
                 for (var i = 0; i < jData.length; i++) {
                     var subData = new Array();
                     
-                    var d = jData[i].date.split("-");
+                    var d = jData[i][0].split("-");
                     subData[0] = new Date( d[0], d[1] - 1, d[2] );
                     
-                    subData[1] = jData[i]['0'];
-                    subData[2] = jData[i]['1'];
-                    subData[3] = jData[i]['2'];
-                    subData[4] = jData[i]['3'];
+                    subData[1] = jData[i]['1'];
+                    
                     data[i] = subData;
                 }
                 
-                drawVisualization('visualization', data);
+                drawVisualizationCompany(company, div, data);
             }
         });
+          
+      }
+    
+      function init() {
+        
+        
+        var company = getUrlVars()["company"];
+        
+        
+        if (company != undefined) {
+            getCompanyData(company, "visualization");
+        } else {
+            
+            //retrieve data for the guage
+            $.ajax({
+                url: 'http://api.socialstock.uni.me/companyResults.php',
+                crossDomain: true,
+                dataType: 'json',
+                success: function(jData) {
+                    
+                    var data = new Array();
+                    
+                    for (var i = 0; i < jData.length; i++) {
+                        var subData = new Array();
+                        
+                        var d = jData[i][0].split("-");
+                        subData[0] = new Date( d[0], d[1] - 1, d[2] );
+                        
+                        subData[1] = jData[i]['1'];
+                        subData[2] = jData[i]['2'];
+                        subData[3] = jData[i]['3'];
+                        subData[4] = jData[i]['4'];
+                        subData[5] = jData[i]['5'];
+                        subData[6] = jData[i]['6'];
+                        subData[7] = jData[i]['7'];
+                        subData[8] = jData[i]['8'];
+                        
+                        data[i] = subData;
+                        
+                        
+                    }
+                    
+                    drawVisualization('visualization', data);
+                }
+            });
+        
+        }
       
         
       }
@@ -74,6 +119,29 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
 			var imageLineGraph = new google.visualization.LineChart(document.getElementById(div));
 			imageLineGraph.draw(data);
       }
+      
+      function drawVisualizationCompany(company, div, dataItems) {
+            
+            var data = new google.visualization.DataTable(dataItems);
+    		
+			/* Construction the table for the timeline */
+			data.addColumn('date', 'Date');
+			data.addColumn('number', company);
+			data.addRows(dataItems);
+			
+			/* The Actual construction of the timeline */
+			var imageLineGraph = new google.visualization.LineChart(document.getElementById(div));
+			imageLineGraph.draw(data);
+      }
+      
+      function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
       
 
       google.setOnLoadCallback(init);
