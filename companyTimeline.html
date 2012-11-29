@@ -81,8 +81,8 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
                         subData[4] = jData[i]['4'];
                         subData[5] = jData[i]['5'];
                         subData[6] = jData[i]['6'];
-                        subData[7] = jData[i]['7'];
-                        subData[8] = jData[i]['8'];
+                        //subData[7] = jData[i]['7'];
+                        //subData[8] = jData[i]['8'];
                         
                         data[i] = subData;
                         
@@ -105,14 +105,22 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
 			
 			/* Construction the table for the timeline */
 			data.addColumn('date', 'Date');
-			data.addColumn('number', 'Albertsons');
+			/*data.addColumn('number', 'Albertsons');
 			data.addColumn('number', '#apple');
 			data.addColumn('number', 'Reddit');
 			data.addColumn('number', 'NASDAQ');
 			data.addColumn('number', 'google');
 			data.addColumn('number', 'Android');
 			data.addColumn('number', 'SuperValu');
-			data.addColumn('number', 'AAPL');
+			data.addColumn('number', 'AAPL');*/
+            
+            data.addColumn('number', "AAPL");
+            data.addColumn('number', "AMZN");
+            data.addColumn('number', "FB");
+            data.addColumn('number', "GOOG");
+            data.addColumn('number', "MSFT");
+            data.addColumn('number', "NASDAQ");
+            
 			data.addRows(dataItems);
 			
 			/* The Actual construction of the timeline */
